@@ -4,8 +4,10 @@
     <head>
         <title>Heroku Project</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script type="text/javascript" src="js/time.js" />
+        <link rel="stylesheet" href="css/default.css"/>
     </head>
-    <body>
-        <div>Time: <time datetime="2008-02-14 20:00"/></div>
+    <body onload="startTime()">
+        <div id="txt" style="font-size:xx-large;position: absolute; margin: auto"></div>
     </body>
 </html>
