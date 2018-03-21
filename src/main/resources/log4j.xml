@@ -1,1 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+        <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        <PatternLayout pattern="%d{dd-MMM-yyyy HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+    </Console>
+    <File name="FileLog" fileName="C:/temp/test.log" append="false">
+        <PatternLayout pattern="%d{dd-MMM-yyyy HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+    </File>
+    <Async name="Async">
+        <AppenderRef ref="FileLog"/>
+    </Async>
+    <RollingFile name="RollingFile" fileName="logs/app.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log">
+        <PatternLayout>
+            <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+        </PatternLayout>
+        <Policies>
+            <TimeBasedTriggeringPolicy />
+            <SizeBasedTriggeringPolicy size="250 MB"/>
+        </Policies>
+    </RollingFile>
+</Appenders>
+<Loggers>
+    <!-- Log all JDBC parameters -->
+    <Logger name="org.hibernate.type" level="info" />
+        
+    <Root level="debug">
+        <AppenderRef ref="Console"/>
+        <AppenderRef ref="FileLog"/>
+        <AppenderRef ref="RollingFile"/>
+        <AppenderRef ref="Async"/>
+    </Root>
+</Loggers>
