@@ -6,18 +6,16 @@
 package com.imos.sample.rest.model;
 
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  *
  * @author Pintu
  */
+@Data
 public class BaseModel implements Serializable {
 
     private static final long serialVersionUID = -1481712236947018405L;
 
     private final long time = System.currentTimeMillis();
-
-    public long getTime() {
-        return time;
-    }
 }

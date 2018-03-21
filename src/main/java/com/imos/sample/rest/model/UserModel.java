@@ -6,11 +6,15 @@
 package com.imos.sample.rest.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  *
  * @author Pintu
  */
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class UserModel extends DetailModel {
 
     private static final long serialVersionUID = 9097500637783260035L;
@@ -20,9 +24,5 @@ public class UserModel extends DetailModel {
 
     public UserModel(String userId) {
         this.userId = userId;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 }

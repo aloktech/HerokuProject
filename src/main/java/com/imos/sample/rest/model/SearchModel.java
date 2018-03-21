@@ -5,10 +5,15 @@
  */
 package com.imos.sample.rest.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  *
  * @author Pintu
  */
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class SearchModel extends UserModel {
 
     private static final long serialVersionUID = -3047586080871620881L;
@@ -19,9 +24,4 @@ public class SearchModel extends UserModel {
         super(userId);
         this.text = text;
     }
-
-    public String getText() {
-        return text;
-    }
-
 }
